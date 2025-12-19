@@ -12,10 +12,10 @@ endif()
 
 include_directories(include) # Where the libraries headers are
 link_directories(lib) # Where the static libraries (xx.a) files are
-target_link_libraries(example mylibrary)
-set(PROJECT_SOURCE_DIR src)
-File(GLOB SRC "${PROJECT_SOURCE_DIR}/*.cpp")
+set(SRC_DIR ${PROJECT_SOURCE_DIR}/src)
+File(GLOB SRC "${SRC_DIR}/*.cpp")
 add_executable(example ${SRC})
+target_link_libraries(example mylibrary)
 
 set_target_properties(example PROPERTIES LINKER_LANGUAGE CXX  VERSION ${PROJECT_VERSION}  OUTPUT_NAME executable)
 
